@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      REGION: us-east-1
+      AWS_ACCESS_KEY_ID: AKIAT7OWGPGBKUZBHUCT
+      AWS_SECRET_ACCESS_KEY: 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
+      CLIENT_ID: 3ultvv8f62lt5a7sp7edsqvglo
