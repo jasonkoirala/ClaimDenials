@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/jasonkoirala/ClaimDenials/auth"
+	awscontroller "github.com/jasonkoirala/ClaimDenials/pkg/controllers/aws_cognito_controllers"
 )
 
 var RegisterAWSCognitoRoutes = func(r *chi.Mux) {
@@ -13,7 +13,7 @@ var RegisterAWSCognitoRoutes = func(r *chi.Mux) {
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Claim Denials...!!!"))
 	})
-	r.Post("/register", auth.RegisterHandler)
-	r.Post("/verify", auth.VerifyEmailConfirmation)
-	r.Post("/login", auth.LoginHandler)
+	r.Post("/register", awscontroller.RegisterHandler)
+	r.Post("/verify", awscontroller.ConfirmationHandler)
+	r.Post("/login", awscontroller.LoginHandler)
 }
