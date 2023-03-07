@@ -2,6 +2,7 @@ package CognitoUserModels
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"os"
 
@@ -9,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/cognitoidentityprovider"
+	"github.com/jasonkoirala/ClaimDenials/pkg/utils"
 )
 
 type GlobalResponse struct {
@@ -61,6 +63,10 @@ type CognitoLoginResponse struct {
 var cognitoClient *cognitoidentityprovider.CognitoIdentityProvider
 
 func init() {
+	fmt.Println("Init function started...")
+
+	utils.PrepareSecrets()
+
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String(os.Getenv("REGION")),
 		Credentials: credentials.NewEnvCredentials(),

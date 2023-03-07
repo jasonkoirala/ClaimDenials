@@ -7,6 +7,4 @@ services:
     environment:
       PORT: 8080
       REGION: us-east-1
-      AWS_ACCESS_KEY_ID: AKIAT7OWGPGBKUZBHUCT
-      AWS_SECRET_ACCESS_KEY: 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
       CLIENT_ID: umg6c597092419onu2bjt8mdv
